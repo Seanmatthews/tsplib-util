@@ -1,5 +1,8 @@
 classdef TSPProblem < handle
 
+    % The class wraps the elements of a travelling salesman problem
+    % represented in the TSPLIB format. 
+    
   properties
     name
     type
@@ -68,8 +71,8 @@ classdef TSPProblem < handle
       line = fgetl(spec)
       while line ~= "EOF"
         n = strsplit(line);
-        obj.X = [obj.X, n(1)];
-        obj.Y = [obj.Y, n(2)];
+        obj.X = [obj.X, str2double(n(1))];
+        obj.Y = [obj.Y, str2double(n(2))];
         line = fgetl(spec)
       end
     end
